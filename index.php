@@ -88,7 +88,7 @@
 						<img src='<? echo $latest_filename ?>' class="img-responsive" alt="IP Camera image" />
 					</div>
 					<div class="panel-footer">
-						Panel footer
+						<? echo date("m/d/Y h:i:s A", filectime($latest_filename)); ?>
 					</div>
 				</div>
 			</div>
