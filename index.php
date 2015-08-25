@@ -78,17 +78,15 @@
 
     <div class="container">
 		<div class="row">
-			<div class="col-sm-6 col-sm-offset-3">
-				<div class="camera-wrapper panel panel-primary">
-					<div class="camera-header panel-heading">
-						<h3 class="panel-title">Front Door</h3>
-					</div>
-					<div class="panel-body">
-						<img src='<? echo $latest_filename ?>' class="img-responsive" alt="IP Camera image" />
-					</div>
-					<div class="panel-footer">
-						<? echo date("m/d/Y h:i:s A", filectime($latest_filename)); ?>
-					</div>
+			<div class="camera-wrapper panel panel-primary">
+				<div class="camera-header panel-heading">
+					<h3 class="panel-title">Front Door</h3>
+				</div>
+				<div class="panel-body">
+					<img src='<? echo $latest_filename ?>' class="img-responsive" alt="IP Camera image" />
+				</div>
+				<div class="panel-footer">
+					<? echo date("m/d/Y h:i:s A", filectime($latest_filename)); ?>
 				</div>
 			</div>
 		</div>
