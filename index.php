@@ -65,13 +65,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">IP Camera</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <!--<li class="active"><a href="#">Home</a></li>-->
+            <!--<li><a href="#about">About</a></li>-->
+            <!--<li><a href="#contact">Contact</a></li>-->
           </ul>
         </div>
       </div>
@@ -92,6 +92,14 @@
 			</div>
 		</div>
     </div>
+	
+	<footer class="footer">
+      <div class="container">
+        <p class="text-muted">
+			Developed by <a href="mailto:matthew.d.hancock@gmail.com">Matthew Hancock</a>, 2015
+		</p>
+      </div>
+    </footer>
 	
 	<!-- Bootstrap core JavaScript
     ================================================== -->
