@@ -1,9 +1,9 @@
 <html>
 	<head>
 		<title>IP Cam</title>
-		
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		
+		<!--Favicon settings-->
 		<link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
@@ -22,11 +22,10 @@
 		<meta name="msapplication-TileImage" content="mstile-144x144.png">
 		<meta name="theme-color" content="#ffffff">
 		
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel="stylesheet" href="content/css/ipcam.css">
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<!--CSS-->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/ipcam.css">
 	</head>
  <body>
 	<?php
@@ -99,7 +98,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
  </body>
 </html>
