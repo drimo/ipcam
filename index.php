@@ -2,7 +2,7 @@
 	<head>
 		<title>IP Cam</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta http-equiv="refresh" content="5">
+		<!--<meta http-equiv="refresh" content="5">-->
 		
 		<!--Favicon settings-->
 		<link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
@@ -35,25 +35,14 @@
 		//favicon generator: http://realfavicongenerator.net/
 		//dark blue: #2b5797
 		
-		//m.hancock - get the latest image from the directory
-		//http://stackoverflow.com/questions/1491020/php-get-the-latest-file-addition-in-a-directory
-		$path = "images"; 
-		
-		$latest_ctime = 0;
-		$latest_filename = '';    
-		
-		$d = dir($path);
-		while (false !== ($entry = $d->read())) {
-			$filepath = "{$path}/{$entry}";
-			// could do also other checks than just checking whether the entry is a file
-			if (is_file($filepath) && filectime($filepath) > $latest_ctime) {
-				$latest_ctime = filectime($filepath);
-				$latest_filename = $entry;
-			}
-		}
-		// now $latest_filename contains the filename of the file that changed last
-		
-		$latest_filename = $path . "/" . $latest_filename;
+		//m.hancock - Get the snapshot image from the camera
+		//http://192.168.1.147/snapshot.cgi?user=ipcam&pwd=snapshot
+		$cameraName = "Front Door";
+		$url = "http://[IPADDRESS]/snapshot.cgi?user=[USERNAME]&pwd=[PASSWORD]";
+		$ipAddress = "192.168.1.147";
+		$userName = "ipcam";
+		$password = "snapshot";
+		$snapshotUrl = str_replace("[IPADDRESS]", $ipAddress, str_replace("[USERNAME]", $userName, str_replace("[PASSWORD]", $password, $url)));
 	?>
 	
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -81,13 +70,13 @@
 		<div class="row">
 			<div class="camera-wrapper panel panel-primary">
 				<div class="camera-header panel-heading">
-					<h3 class="panel-title">Front Door</h3>
+					<h3 class="panel-title"><?=$cameraName;?></h3>
 				</div>
 				<div class="panel-body">
-					<img src='<? echo $latest_filename ?>' class="img-responsive" alt="IP Camera image" />
+					<img id="imgCamera" src='<?=$snapshotUrl;?>' class="img-responsive" alt="IP Camera image" />
 				</div>
 				<div class="panel-footer">
-					<? echo date("m/d/Y h:i:s A", filectime($latest_filename)); ?>
+					<span id="imgDate" />
 				</div>
 			</div>
 		</div>
@@ -107,5 +96,22 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			//m.hancock - 08/27/2015 08:17:17 AM - Automatically refresh the image using ajax.
+			setDate();
+			setInterval(function() {
+				$('#imgCamera').attr('src', '<?=$snapshotUrl;?>');
+				setDate(); 
+			}, 5000);
+		});
+		
+		function setDate() {
+			var d = new Date();
+			var formattedDate = d.getMonth()+1 + "/" + d.getDate() + "/" + d.getFullYear() + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+			$("#imgDate").text(formattedDate);
+		}
+	</script>
  </body>
 </html>
